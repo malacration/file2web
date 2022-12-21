@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWrapLength="0.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.andrew.cnabworker.controllers.MainController">
+   <children>
+      <VBox fx:id="content" alignment="CENTER" spacing="10.0">
+         <children>
+            <HBox fillHeight="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label minWidth="100.0" text="URL">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="urlFild" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="400.0" />
+               </children>
+            </HBox>
+            <HBox fillHeight="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
+               <children>
+                  <Label minWidth="100.0" text="Entrada">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonEntrada" mnemonicParsing="false" onAction="#entradaButton" prefWidth="380.0" text="Selecione um diretorio para entrada" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox fillHeight="false" layoutX="10.0" layoutY="45.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
+               <children>
+                  <Label minWidth="100.0" text="Saída">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonSaida" mnemonicParsing="false" onAction="#saidaButton" prefWidth="380.0" text="Selecione um diretorio para saída" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER" fillHeight="false" layoutX="10.0" layoutY="80.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <ToggleButton fx:id="excToggle" onAction="#toggle" mnemonicParsing="false" text="Executar" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</FlowPane>
