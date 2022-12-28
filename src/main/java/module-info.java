@@ -3,6 +3,8 @@ module br.andrew.cnabworker {
     requires javafx.fxml;
     requires kotlin.stdlib;
     requires java.net.http;
+    requires jdk.crypto.ec;
+    requires jdk.crypto.cryptoki;
 
 
     opens br.andrew.cnabworker to javafx.fxml;

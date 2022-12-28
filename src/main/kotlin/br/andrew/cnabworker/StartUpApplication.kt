@@ -13,7 +13,7 @@ class StartUpApplication : Application() {
         scene.getStylesheets().add(
             StartUpApplication::class.java.getResource("log-view.css").toExternalForm()
         );
-        stage.title = "Hello!"
+        stage.title = "File to Web"
         stage.scene = scene
         stage.show()
     }
