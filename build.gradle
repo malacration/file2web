@@ -46,7 +46,7 @@ javafx {
 dependencies {
     implementation("org.openjfx:javafx-controls:18.0.1")
     implementation("org.openjfx:javafx-fxml:18.0.1")
-
+    implementation 'io.github.palexdev:materialfx:11.13.9'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

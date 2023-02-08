@@ -1,13 +1,15 @@
 package br.andrew.cnabworker.controllers
 
+import br.andrew.cnabworker.Config
+import br.andrew.cnabworker.ConfigRepository
+import br.andrew.cnabworker.Diretorio
 import br.andrew.cnabworker.nodes.LogNode
 import br.andrew.cnabworker.service.SendScheduledTask
+import javafx.collections.FXCollections
 import javafx.fxml.FXML
-import javafx.scene.control.Alert
+import javafx.scene.control.*
 import javafx.scene.control.Alert.AlertType
-import javafx.scene.control.Button
-import javafx.scene.control.TextField
-import javafx.scene.control.ToggleButton
+import javafx.scene.control.cell.PropertyValueFactory
 import javafx.scene.layout.VBox
 import javafx.stage.DirectoryChooser
 import javafx.stage.Stage
@@ -18,13 +20,10 @@ import java.util.*
 class MainController {
 
     private var dirSaida: File?  = null
-    private var dirEntrada: File? = null
 
     val time = Timer()
     var task : SendScheduledTask? = null
 
-    @FXML
-    var buttonEntrada : Button? = null
     @FXML
     var buttonSaida : Button? = null
     @FXML
@@ -32,23 +31,36 @@ class MainController {
     @FXML
     var urlFild : TextField? = null
     @FXML
+    var tableEntrada : TableView<Diretorio>? = null
+    @FXML
     var content : VBox? = null
 
     @FXML
     fun initialize(){
         content?.children?.add(LogNode())
+        if(tableEntrada != null){
+            val dir = TableColumn<Diretorio,String>("Diretorio").also { it.setCellValueFactory(PropertyValueFactory("pathDir")); it.minWidth = 280.0}
+            val delete = TableColumn<Diretorio,String>("Excluir?").also { it.setCellFactory(Diretorio.test) }
+            tableEntrada!!.columns.setAll(listOf(dir,delete))
+            val config = ConfigRepository().carregar()
+            if(config != null){
+                urlFild!!.text = config.url
+                tableEntrada!!.items.addAll(config.getDirs())
+                dirSaida = File(config.saida)
+                buttonSaida?.text = "Selecionando: "+dirSaida.toString()
+            }
+        }
     }
 
     @FXML
     fun entradaButton(){
-        dirEntrada = getDir()
-        buttonEntrada?.text = "Selecionando: "+dirEntrada.toString()
+        tableEntrada!!.items.add(Diretorio(getDir().toString()))// = FXCollections.observableArrayList(Diretorio(dirEntrada.toString()))
     }
 
     @FXML
     fun saidaButton(){
         dirSaida = getDir()
-        buttonSaida?.text = "Selecionando: "+dirEntrada.toString()
+        buttonSaida?.text = "Selecionando: "+dirSaida.toString()
     }
 
     fun getDir() : File {
@@ -65,16 +77,28 @@ class MainController {
                 LogNode.logger.info("Tarefa pausada iniciando purge")
                 time.purge()
             }
-        }else if(dirEntrada == null || dirSaida == null || urlFild?.text?.isNotBlank() != true){
+        }else if(valido()){
             val alert = Alert(AlertType.ERROR)
             alert.setTitle("Erro");
             alert.setHeaderText("Porfavor preencha todos os campos");
             alert.show()
             excToggle?.isSelected = false
         } else{
+            salvar()
             LogNode.logger.info("Iniciando agendamento")
-            task = SendScheduledTask(urlFild!!.text,dirEntrada!!,dirSaida!!)
-            time.schedule(task, 0, 1000)
+            task = SendScheduledTask(urlFild!!.text, this.tableEntrada!!.items.map { File(it.pathDir) },dirSaida!!)
+            time.schedule(task, 5000, 1000)
         }
+    }
+
+    fun salvar() {
+        if(valido()){
+            ConfigRepository().salvar(Config(urlFild!!.text, this.tableEntrada!!.items.map { it.pathDir },dirSaida!!.toString()))
+            LogNode.logger.info("Configuração salva com sucesso")
+        }
+    }
+
+    private fun valido(): Boolean {
+        return this.tableEntrada!!.items.size > 0 || dirSaida == null || urlFild?.text?.isNotBlank() != true
     }
 }

@@ -9,12 +9,12 @@ class StartUpApplication : Application() {
     override fun start(stage: Stage) {
         val fxmlLoader = FXMLLoader(StartUpApplication::class.java.getResource("main.fxml"))
         val scene = Scene(fxmlLoader.load(), 800.0, 600.0)
-
         scene.getStylesheets().add(
             StartUpApplication::class.java.getResource("log-view.css").toExternalForm()
         );
         stage.title = "File to Web"
         stage.scene = scene
+        stage.isMaximized = true
         stage.show()
     }
 }

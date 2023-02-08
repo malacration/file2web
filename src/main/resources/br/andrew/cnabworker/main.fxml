@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWrapLength="0.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.andrew.cnabworker.controllers.MainController">
+<FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWrapLength="0.0" vgap="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.andrew.cnabworker.controllers.MainController">
    <children>
       <VBox fx:id="content" alignment="CENTER" spacing="10.0">
          <children>
@@ -37,6 +35,19 @@
                   <Insets />
                </opaqueInsets>
             </HBox>
+            <HBox fillHeight="false" layoutX="10.0" layoutY="44.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
+               <children>
+                  <Label contentDisplay="BOTTOM" minWidth="100.0" text="Entradas">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tableEntrada" prefHeight="100.0" prefWidth="380.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
             <HBox fillHeight="false" layoutX="10.0" layoutY="45.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" spacing="10.0">
                <children>
                   <Label minWidth="100.0" text="Saída">
@@ -55,7 +66,8 @@
                   <Insets />
                </opaqueInsets>
                <children>
-                  <ToggleButton fx:id="excToggle" onAction="#toggle" mnemonicParsing="false" text="Executar" />
+                  <ToggleButton fx:id="excToggle" mnemonicParsing="false" onAction="#toggle" text="Executar" />
+                  <Button onAction="#salvar" text="Salvar" />
                </children>
             </HBox>
          </children>
