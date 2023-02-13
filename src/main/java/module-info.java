@@ -7,9 +7,10 @@ module br.andrew.cnabworker {
     requires jdk.crypto.cryptoki;
 
 
-    opens br.andrew.cnabworker to javafx.fxml;
+    opens br.andrew.cnabworker to javafx.fxml, javafx.graphics;
     exports br.andrew.cnabworker;
 
     opens br.andrew.cnabworker.controllers to javafx.fxml;
     exports br.andrew.cnabworker.controllers;
+
 }
