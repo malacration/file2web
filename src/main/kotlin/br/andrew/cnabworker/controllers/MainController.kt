@@ -77,7 +77,7 @@ class MainController {
                 LogNode.logger.info("Tarefa pausada iniciando purge")
                 time.purge()
             }
-        }else if(valido()){
+        }else if(!valido()){
             val alert = Alert(AlertType.ERROR)
             alert.setTitle("Erro");
             alert.setHeaderText("Porfavor preencha todos os campos");
