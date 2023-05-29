@@ -23,6 +23,10 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
       - run: ./gradlew jlinkZip
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./build/distributions/*.zip
   build-windows:
     name: Build Win
     runs-on: windows-latest
@@ -34,3 +38,7 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
       - run: ./gradlew jlinkZip
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./build/distributions/*.zip
