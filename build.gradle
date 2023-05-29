@@ -7,7 +7,7 @@ plugins {
 
     id "org.beryx.jlink" version "2.26.0"
 
-    id "org.panteleyev.jpackageplugin" version "1.5.1"
+//    id "org.panteleyev.jpackageplugin" version "1.5.1"
 
 
     id 'org.jetbrains.kotlin.jvm' version '1.6.20'
