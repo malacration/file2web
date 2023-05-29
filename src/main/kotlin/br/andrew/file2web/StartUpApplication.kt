@@ -1,4 +1,4 @@
-package br.andrew.cnabworker
+package br.andrew.file2web
 
 import javafx.application.Application
 import javafx.fxml.FXMLLoader

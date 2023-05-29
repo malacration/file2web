@@ -1,4 +1,4 @@
-package br.andrew.cnabworker.nodes
+package br.andrew.file2web.nodes
 
 import javafx.animation.Animation
 import javafx.animation.KeyFrame

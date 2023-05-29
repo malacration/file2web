@@ -1,4 +1,4 @@
-module br.andrew.cnabworker {
+module br.andrew.file2web {
     requires javafx.controls;
     requires javafx.fxml;
     requires kotlin.stdlib;
@@ -7,10 +7,10 @@ module br.andrew.cnabworker {
     requires jdk.crypto.cryptoki;
 
 
-    opens br.andrew.cnabworker to javafx.fxml, javafx.graphics;
-    exports br.andrew.cnabworker;
+    opens br.andrew.file2web to javafx.fxml, javafx.graphics;
+    exports br.andrew.file2web;
 
-    opens br.andrew.cnabworker.controllers to javafx.fxml;
-    exports br.andrew.cnabworker.controllers;
+    opens br.andrew.file2web.controllers to javafx.fxml;
+    exports br.andrew.file2web.controllers;
 
 }

@@ -1,11 +1,10 @@
-package br.andrew.cnabworker.controllers
+package br.andrew.file2web.controllers
 
-import br.andrew.cnabworker.Config
-import br.andrew.cnabworker.ConfigRepository
-import br.andrew.cnabworker.Diretorio
-import br.andrew.cnabworker.nodes.LogNode
-import br.andrew.cnabworker.service.SendScheduledTask
-import javafx.collections.FXCollections
+import br.andrew.file2web.Config
+import br.andrew.file2web.ConfigRepository
+import br.andrew.file2web.Diretorio
+import br.andrew.file2web.nodes.LogNode
+import br.andrew.file2web.service.SendScheduledTask
 import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.scene.control.Alert.AlertType

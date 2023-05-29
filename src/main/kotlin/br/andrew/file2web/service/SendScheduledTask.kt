@@ -1,6 +1,6 @@
-package br.andrew.cnabworker.service
+package br.andrew.file2web.service
 
-import br.andrew.cnabworker.nodes.LogNode
+import br.andrew.file2web.nodes.LogNode
 import java.io.File
 import java.net.URI
 import java.net.http.HttpClient
